@@ -12,5 +12,13 @@
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/RhuanBorgesnr/task_manager.git
+cd task_manager
+
+Configuração do Backend
+
+Clone o repositório do projeto.
+
+```bash
+git clone https://github.com/RhuanBorgesnr/task_manager
+cd task_manager/backend
