@@ -51,6 +51,7 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
+Abra na porta [http://localhost:8000].
 
 ## Configuração do Frontend
 
@@ -71,3 +72,4 @@ npm install
 ```bash
 npm start
 ```
+Abra [http://localhost:3000] para visualizá-lo no navegador.
