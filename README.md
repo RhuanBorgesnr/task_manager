@@ -17,14 +17,14 @@ Este projeto é uma aplicação web para gerenciamento de tarefas e registros de
 
 ```bash
 git clone https://github.com/RhuanBorgesnr/task_manager.git
-cd task_manager
+cd task_manager/backend
 ```
 
 ### 2. Crie ative um ambiente virtual.
 
 ```bash
-  python -m venv venv
-  source venv/bin/activate  # Para Linux/Mac
+  python3 -m venv ./venv
+  source venv/bin/activate # Para Linux/Mac
   venv\Scripts\activate     # Para Windows
 ```
 
@@ -34,3 +34,40 @@ cd task_manager
 pip install -r requirements.txt
 ```
 
+### 4. Para criar o banco de dados, execute:
+
+```bash
+python manage.py migrate
+```
+
+### 5. Crie um superusuário
+
+```bash
+python manage.py createsuperuser
+```
+
+### 5. Inicie o servidor de desenvolvimento.
+
+```bash
+python manage.py runserver
+```
+
+## 2. Configuração do Frontend
+
+### 1. Em um novo terminal, acesse a pasta do frontend.
+
+```bash
+cd task_manager/frontend
+```
+
+### 2. Instale as dependências.
+
+```bash
+npm install
+```
+
+### 3. Inicie o servidor de desenvolvimento.
+
+```bash
+npm start
+```
