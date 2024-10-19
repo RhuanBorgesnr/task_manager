@@ -20,10 +20,10 @@ git clone https://github.com/RhuanBorgesnr/task_manager.git
 cd task_manager/backend
 ```
 
-### 2. Crie ative um ambiente virtual.
+### 2. Criar um ambiente virtual.
 
 ```bash
-  python3 -m venv ./venv
+  python3.8 -m venv ./venv
   source venv/bin/activate # Para Linux/Mac
   venv\Scripts\activate     # Para Windows
 ```
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-### 5. Crie um superusuário
+### 5. Crie um superusuário.
 
 ```bash
 python manage.py createsuperuser

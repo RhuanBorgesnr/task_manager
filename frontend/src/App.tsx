@@ -1,6 +1,4 @@
-// src/App.tsx
-import React from "react";
-import {
+import React from "react";import {
   BrowserRouter as Router,
   Routes,
   Route,
@@ -31,7 +29,7 @@ const Navigation: React.FC = () => {
               </li>
             </ul>
           </nav>
-          <LogoutButton /> {/* Botão fora do <li> */}
+          <LogoutButton />
         </>
       )}
     </div>
