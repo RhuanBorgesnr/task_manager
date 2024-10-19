@@ -20,7 +20,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setIsAuthenticated(true);
     }
   }, []);
-
+  
   const login = (token: string) => {
     localStorage.setItem('jwtToken', token);
     localStorage.setItem('isAuthenticated', 'true');

@@ -7,12 +7,12 @@ class Task(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.description
+        return f'{self.description} by {self.user.username}'
 
 class TimeRecord(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     date = models.DateField()
-    hours = models.PositiveIntegerField()
+    hours = models.DecimalField(max_digits=5, decimal_places=2)
     description = models.TextField()
 
     def __str__(self):

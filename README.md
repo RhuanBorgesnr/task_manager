@@ -5,11 +5,44 @@ Este projeto é uma aplicação web para gerenciamento de tarefas e registros de
 - **Backend**: Utiliza Django e Django Rest Framework para criar uma API que gerencia as operações de tarefas e registros de tempo.
 - **Frontend**: Utiliza React para fornecer uma interface interativa onde os usuários podem visualizar e interagir com suas tarefas e registros.
 
+## Estrutura de Usuários
+
+**A estrutura de usuários foi criada para permitir um controle geral do sistema, possibilitando a visualização e o gerenciamento de tarefas e registros de tempo de todos os usuários para cada grupo. Isso atende à necessidade de realizar filtros de usuários conforme descrito no desafio. Caso prefira, pode criar os próprios usuários e vinculá-los aos grupos existentes no sistema pelo Django Admin. Abaixo estarão alguns usuários para testes.**
+
+Para fins de teste, foram criados os seguintes usuários do grupo Funcionários:
+
+| Nome de Usuário | Senha |
+| --------------- | ----- |
+| rhuannoronha1   | 123   |
+| rhuannoronha2   | 123   |
+
+Além disso, foi criado um usuário do grupo Administradores:
+
+| Nome de Usuário | Senha |
+| --------------- | ----- |
+| admin           | 123   |
+
+Os usuários do grupo Funcionários têm acesso limitado e podem visualizar e gerenciar apenas suas próprias tarefas e registros de tempo. Os administradores, por outro lado, têm permissões para visualizar e gerenciar todas as tarefas e registros de tempo de todos os usuários.
+
 ## Pré-requisitos
 
-- Python 3.8 ou superior
-- Node.js 14 ou superior
-- npm (Node Package Manager)
+Antes de começar, você precisa ter as seguintes ferramentas instaladas:
+
+- **Python**: 3.8 ou superior
+  - Para verificar a versão instalada:
+    ```bash
+    python --version
+    ```
+- **Node.js**: 14 ou superior
+  - Para verificar a versão instalada:
+    ```bash
+    node --version
+    ```
+- **npm**: Node Package Manager
+  - Para verificar a versão instalada:
+    ```bash
+    npm --version
+    ```
 
 ## Configuração do Backend (Django)
 
@@ -51,6 +84,7 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
+
 Abra na porta [http://localhost:8000].
 
 ## Configuração do Frontend
@@ -72,4 +106,5 @@ npm install
 ```bash
 npm start
 ```
+
 Abra [http://localhost:3000] para visualizá-lo no navegador.

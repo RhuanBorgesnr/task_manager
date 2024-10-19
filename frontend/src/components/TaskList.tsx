@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./TaskList.css";
 import axios from "../utils/axios";
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash } from "react-icons/fa";
+
 interface Task {
   id: number;
   user: number;
@@ -21,12 +22,26 @@ const formatDateToBR = (dateString: string): string => {
 const TaskList: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [description, setDescription] = useState("");
+  const [userData, setUserData] = useState<{ username: string; groups: string[] } | null>(null);
 
   useEffect(() => {
     axios
       .get("tasks/")
       .then((response) => setTasks(response.data))
       .catch((error) => console.error(error));
+  }, []);
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await axios.get("/user/");
+        setUserData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUserDetails();
   }, []);
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -50,20 +65,23 @@ const TaskList: React.FC = () => {
       })
       .catch((error) => console.error(error));
   };
+
+  const isAdmin = userData?.groups.includes('Administrador');
   return (
     <div className="task-list-container">
       <h1>Lista de Tarefas</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Descrição da tarefa"
-          required
-        />
-
-        <button type="submit">Cadastrar Tarefa</button>
-      </form>
+      {!isAdmin && (
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Descrição da tarefa"
+            required
+          />
+          <button type="submit">Cadastrar Tarefa</button>
+        </form>
+      )}
       <div className="task-list-header">
         <span className="task-description-header">Descrição</span>
         <span className="task-created-at-header">Criado em</span>
@@ -81,10 +99,9 @@ const TaskList: React.FC = () => {
               className="delete-button"
               onClick={() => handleDelete(task.id)}
             >
-              <FaTrash /> 
+              <FaTrash />
             </button>
           </li>
-          
         ))}
       </ul>
     </div>

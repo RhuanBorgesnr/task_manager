@@ -118,3 +118,18 @@
     box-sizing: border-box;
   }
 }
+
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff4d4d;
+  font-size: 1.2em;
+  width: 20px;
+  height: 20px;
+}
+
+.delete-button:hover {
+  color: #ff1a1a;
+}
