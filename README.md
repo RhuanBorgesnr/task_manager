@@ -46,13 +46,13 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-### 5. Inicie o servidor de desenvolvimento.
+### 6. Inicie o servidor de desenvolvimento.
 
 ```bash
 python manage.py runserver
 ```
 
-## 2. Configuração do Frontend
+## Configuração do Frontend
 
 ### 1. Em um novo terminal, acesse a pasta do frontend.
 
