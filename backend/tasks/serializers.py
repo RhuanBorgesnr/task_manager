@@ -31,7 +31,7 @@ class TimeRecordSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = TimeRecord
-        fields = ['id', 'task', 'description', 'formatted_hours', 'date', 'task_description']
+        fields = ['id', 'task', 'description', 'formatted_hours', 'hours', 'date', 'task_description']
         
     def get_task_description(self, obj):
         if obj.task:
