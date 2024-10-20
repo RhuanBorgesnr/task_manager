@@ -41,7 +41,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     
     def destroy(self, request, *args, **kwargs):
         task = self.get_object()
-        if task.user != request.user:
+        if task.user != request.user and not request.user.groups.filter(name='Administrador').exists():
             return Response(status=status.HTTP_403_FORBIDDEN)
         task.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -80,7 +80,7 @@ class TimeRecordViewSet(viewsets.ModelViewSet):
     
     def destroy(self, request, *args, **kwargs):
         time_records = self.get_object()
-        if time_records.task.user != request.user:
+        if time_records.task.user != request.user and not request.user.groups.filter(name='Administrador').exists():
             return Response(status=status.HTTP_403_FORBIDDEN)
         time_records.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
