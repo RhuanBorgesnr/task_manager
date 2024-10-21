@@ -107,3 +107,11 @@ npm install
 npm start
 ```
 **Acesse o frontend em** http://localhost:3000.
+
+
+## Executando os Testes
+
+### Backend (Django)
+
+```bash
+python manage.py test
